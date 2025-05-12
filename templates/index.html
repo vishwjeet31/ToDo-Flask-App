@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App</title>
+</head>
+<body>
+    <h1>To-Do List</h1>
+
+      <div class="centred">
+
+
+   	 <form action="/submit" method="POST">
+        	<label for="itemName">Item Name:</label>
+        	<input type="text" id="itemName" name="itemName" required><br><br>
+
+        	<label for="itemDescription">Item Description:</label>
+       		<textarea id="itemDescription" name="itemDescription" required></textarea><br><br>
+		
+
+       		 <button type="submit">Submit To-Do Item</button>
+    	</form>
+
+    	{% if data %}
+        	<h2>Submitted To-Do Items</h2>
+        	<ul>	
+        	{% for item in data %}
+           		 <li>{{ item.itemName }}: {{ item.itemDescription }}</li>
+        	{% endfor %}
+        	</ul>
+    	{% endif %}
+
+     </div>
+
+     <style>
+        body {
+            background-color: whitesmoke;
+            text-align: center;
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: black;
+        }
+
+        .centred {
+            margin: auto;
+            width: 300px;
+            border: 3px solid green;
+            padding: 10px;
+        }
+    </style>
+
+
+
+</body>
+</html>
+
